@@ -182,6 +182,10 @@ def start_task():
     
     return jsonify({"task_id": task_id, "actions": actions})
 
+@app.route('/', methods=['POST'])
+def home():
+    return "This is desktop app. Here is not DEPLOYING"
+
 @app.route('/get_action', methods=['POST'])
 def get_action():
     """Get the next action based on screenshot and previous action status."""
