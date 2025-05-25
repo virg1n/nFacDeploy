@@ -198,7 +198,7 @@ def get_action():
     if not task_data:
         return jsonify({"error": "Task not found"}), 404
     
-    history = task_data["history"]
+    # history = task_data["history"]
     objective = task_data["objective"]
     
     if last_click_failed:
