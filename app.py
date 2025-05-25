@@ -37,19 +37,19 @@ You have 4 possible operation_type actions available to you. The `pyautogui` lib
 
 1. click - Move mouse and click - Look for text to click. Try to find relevant text to click.
 ```
-[{ "thought": "write a thought here", "operation_type": "click", "text": "The text in the button or link to click" }]  
+[{{ "thought": "write a thought here", "operation_type": "click", "text": "The text in the button or link to click" }}]  
 ```
 2. write - Write with your keyboard
 ```
-[{ "thought": "write a thought here", "operation_type": "write", "content": "text to write here" }]
+[{{ "thought": "write a thought here", "operation_type": "write", "content": "text to write here" }}]
 ```
 3. press - Use a hotkey or press key to operate the computer
 ```
-[{ "thought": "write a thought here", "operation_type": "press", "keys": ["keys to use"] }]
+[{{ "thought": "write a thought here", "operation_type": "press", "keys": ["keys to use"] }}]
 ```
 4. end - The objective is completed
 ```
-[{ "thought": "write a thought here", "operation_type": "end", "summary": "summary of what was completed" }]
+[{{ "thought": "write a thought here", "operation_type": "end", "summary": "summary of what was completed" }}]
 ```
 
 Return the actions in array format `[]`. You can take just one action or multiple actions.
@@ -59,30 +59,30 @@ Here a helpful example:
 Example 1: Searches for Google Chrome on the OS and opens it
 ```
 [
-    { "thought": "Searching the operating system to find Google Chrome because it appears I am currently in terminal", "operation_type": "press", "keys": {os_search_str} },
-    { "thought": "Now I need to write 'Google Chrome' as a next step", "operation_type": "write", "content": "Google Chrome " },
-    { "thought": "Finally I'll press enter to open Google Chrome assuming it is available", "operation_type": "press", "keys": ["enter"] }
+    {{ "thought": "Searching the operating system to find Google Chrome because it appears I am currently in terminal", "operation_type": "press", "keys": {os_search_str} }},
+    {{ "thought": "Now I need to write 'Google Chrome' as a next step", "operation_type": "write", "content": "Google Chrome" }},
+    {{ "thought": "Finally I'll press enter to open Google Chrome assuming it is available", "operation_type": "press", "keys": ["enter"] }}
 ]
 ```
 
 Example 2: Open a new Google Docs
 ```
 [
-    { "thought": "Searching the operating system to find Google Chrome because it appears I am currently in terminal", "operation_type": "press", "keys": {os_search_str} },
-    { "thought": "Now I need to write 'Google Chrome' as a next step", "operation_type": "write", "content": "Google Chrome" },
-    { "thought": "Finally I'll press enter to open Google Chrome assuming it is available", "operation_type": "press", "keys": ["enter"] },
-    { "thought": "I'll focus on the address bar in the browser. I can see the browser is open so this should be safe to try", "operation_type": "press", "keys": [{cmd_string}, "t"] },
-    { "thought": "Now that the address bar is in focus I can type the URL", "operation_type": "write", "content": "https://docs.new/" },
-    { "thought": "I'll need to press enter to go the URL now", "operation_type": "press", "keys": ["enter"] }
+    {{ "thought": "Searching the operating system to find Google Chrome because it appears I am currently in terminal", "operation_type": "press", "keys": {os_search_str} }},
+    {{ "thought": "Now I need to write 'Google Chrome' as a next step", "operation_type": "write", "content": "Google Chrome" }},
+    {{ "thought": "Finally I'll press enter to open Google Chrome assuming it is available", "operation_type": "press", "keys": ["enter"] }}
+    {{ "thought": "I'll focus on the address bar in the browser. I can see the browser is open so this should be safe to try", "operation_type": "press", "keys": [{cmd_string}, "t"] }},
+    {{ "thought": "Now that the address bar is in focus I can type the URL", "operation_type": "write", "content": "https://docs.new/" }},
+    {{ "thought": "I'll need to press enter to go the URL now", "operation_type": "press", "keys": ["enter"] }}
 ]
 ```
 
 Example 3: Search for someone on Linkedin when already on linkedin.com
 ```
 [
-    { "thought": "I can see the search field with the placeholder text 'search'. I click that field to search", "operation_type": "click", "text": "search" },
-    { "thought": "Now that the field is active I can write the name of the person I'd like to search for", "operation_type": "write", "content": "John Doe" },
-    { "thought": "Finally I'll submit the search form with enter", "operation_type": "press", "keys": ["enter"] }
+    {{ "thought": "I can see the search field with the placeholder text 'search'. I click that field to search", "operation_type": "click", "text": "search" }},
+    {{ "thought": "Now that the field is active I can write the name of the person I'd like to search for", "operation_type": "write", "content": "John Doe" }},
+    {{ "thought": "Finally I'll submit the search form with enter", "operation_type": "press", "keys": ["enter"] }}
 ]
 ```
 
@@ -100,8 +100,10 @@ A few important notes:
 - To order something in the shop, you need to click into its name.
 - If you want to open vault in obsidian app, you need to click to its name.
 
+
 Objective: {objective} 
 """
+
 
 # Configure Gemini API
 GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
